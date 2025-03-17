@@ -1,7 +1,7 @@
 from threading import Timer
 import time
 import atexit
-from sys import version_info
+from smbus2 import SMBus
 
 
 PWM = 0
@@ -67,14 +67,7 @@ class PanTilt:
             return True
 
         if self._i2c is None:
-            try:
-                from smbus import SMBus
-                self._i2c = SMBus(1)
-            except ImportError:
-                if version_info[0] < 3:
-                    raise ImportError("This library requires python-smbus\nInstall with: sudo apt-get install python-smbus")
-                elif version_info[0] == 3:
-                    raise ImportError("This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus")
+            self._i2c = SMBus(1)
 
         self.clear()
         self._set_config()
@@ -123,19 +116,13 @@ class PanTilt:
         if type(value) is not int:
             raise TypeError("Value should be an integer")
         if value < value_min or value > value_max:
-            raise ValueError("Value {value} should be between {min} and {max}".format(
-                value=value,
-                min=value_min,
-                max=value_max))
+            raise ValueError(f"Value {value} should be between {value_min} and {value_max}")
 
     def _check_range(self, value, value_min, value_max):
         """Check the type and bounds check an expected int value."""
 
         if value < value_min or value > value_max:
-            raise ValueError("Value {value} should be between {min} and {max}".format(
-                value=value,
-                min=value_min,
-                max=value_max))
+            raise ValueError(f"Value {value} should be between {value_min} and {value_max}")
 
     def _servo_us_to_degrees(self, us, us_min, us_max):
         """Converts pulse time in microseconds to degrees

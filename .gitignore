@@ -15,3 +15,6 @@ __pycache__
 *.orig.*
 packaging/*tar.xz
 library/debian/
+.coverage
+.pytest_cache
+.tox
