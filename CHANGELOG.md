@@ -1,3 +1,9 @@
+1.0.0
+-----
+
+* Repackage to Pi 5 / Bookworm compatibility
+* Switch from smbus to smbus2
+
 0.0.6
 -----
 
