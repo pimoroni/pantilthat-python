@@ -5,14 +5,13 @@ import time
 
 import pantilthat
 
-
 while True:
     # Get the time in seconds
     t = time.time()
 
     # G enerate an angle using a sine wave (-1 to 1) multiplied by 90 (-90 to 90)
     a = math.sin(t * 2) * 90
-    
+
     # Cast a to int for v0.0.2
     a = int(a)
 

@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-import pantilthat
 from sys import exit
+
+import pantilthat
 
 try:
     from flask import Flask, render_template
 except ImportError:
-    exit("This script requires the flask module\nInstall with: sudo pip install flask")
+    exit("This script requires the flask module\nInstall with: pip install flask")
 
 app = Flask(__name__)
 
@@ -23,11 +24,11 @@ def api(direction, angle):
 
     if direction == 'pan':
         pantilthat.pan(angle)
-        return "{{'pan':{}}}".format(angle)
+        return f"{{'pan':{angle}}}"
 
     elif direction == 'tilt':
         pantilthat.tilt(angle)
-        return "{{'tilt':{}}}".format(angle)
+        return f"{{'tilt':{angle}}}"
 
     return "{'error':'invalid direction'}"
 
