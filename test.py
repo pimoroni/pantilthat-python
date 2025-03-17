@@ -181,7 +181,7 @@ pt.servo_pulse_max(2, 2300)
 print("\n=== SERVOS ===")
 
 print("\nSetting servo one to 0 degrees...")
-i2c_assert(lambda: pt.servo_one(0), 
+i2c_assert(lambda: pt.servo_one(0),
            lambda: regs[REG_SERVO1] == 5 and regs[REG_SERVO1 + 1] == 125,
            "Servo 1 regs contain incorrect value!")
 print("OK!")
