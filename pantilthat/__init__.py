@@ -1,6 +1,6 @@
-from .pantilt import GRB, GRBW, PWM, RGB, RGBW, WS2812, PanTilt
+from .pantilt import GRB, GRBW, PWM, RGB, RGBW, WS2812, PanTilt  # noqa F401
 
-__version__ = '0.0.6'
+__version__ = "1.0.0"
 
 pantilthat = PanTilt()
 

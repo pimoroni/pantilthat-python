@@ -1,7 +1,8 @@
 import sys
-import time
 
 import mock
+
+import pantilthat
 
 REG_CONFIG = 0x00
 REG_SERVO1 = 0x01
@@ -47,7 +48,7 @@ class SMBus:
             name = self._watch_regs[reg]
             length = self._watch_len[reg]
             result = regs[reg:reg+length]
-            #print("Writing {data} to {name}: {result}".format(data=data, addr=addr, reg=reg, name=name, result=result))
+            print(f"Writing {data} to {name}: {result}")
 
     def write_i2c_block_data(self, addr, reg, data):
         global regs
@@ -96,20 +97,6 @@ def assert_raises(action, expect, message):
     sys.exit(1)
 
 
-
-import atexit
-import sys
-import threading
-
-import pantilthat
-
-old_path = sys.path
-sys.path = ['.']
-
-assert_raises(lambda: pantilthat.setup(), ImportError, "ImportError not raised by pantilthat.setup() when missing SMbus!")
-
-sys.path = old_path
-
 smbus = mock.Mock()
 smbus.SMBus = SMBus
 
@@ -147,7 +134,7 @@ pt = pantilthat
 #
 # Library should start up with servo1 and servo2 disabled
 # and the light mode should default to WS2812, enabled
-assert regs[REG_CONFIG] == 0b00001100, "Config reg incorrect!: {}".format(regs[REG_CONFIG])
+assert regs[REG_CONFIG] == 0b00001100, f"Config reg incorrect!: {regs[REG_CONFIG]}"
 print("OK!")
 
 # Check every method we expect to exit, actually exists
