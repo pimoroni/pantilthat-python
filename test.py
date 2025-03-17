@@ -1,7 +1,7 @@
 import sys
 import time
-import mock
 
+import mock
 
 REG_CONFIG = 0x00
 REG_SERVO1 = 0x01
@@ -97,10 +97,11 @@ def assert_raises(action, expect, message):
 
 
 
-import pantilthat
-import sys
 import atexit
+import sys
 import threading
+
+import pantilthat
 
 old_path = sys.path
 sys.path = ['.']

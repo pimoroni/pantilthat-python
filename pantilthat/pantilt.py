@@ -1,8 +1,8 @@
-from threading import Timer
-import time
 import atexit
-from smbus2 import SMBus
+import time
+from threading import Timer
 
+from smbus2 import SMBus
 
 PWM = 0
 WS2812 = 1

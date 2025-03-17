@@ -1,4 +1,4 @@
-from .pantilt import PanTilt, WS2812, PWM, RGB, GRB, RGBW, GRBW
+from .pantilt import GRB, GRBW, PWM, RGB, RGBW, WS2812, PanTilt
 
 __version__ = '0.0.6'
 

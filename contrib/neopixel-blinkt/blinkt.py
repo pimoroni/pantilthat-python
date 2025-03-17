@@ -1,8 +1,9 @@
 """Library for Pimoroni Blinkt! programs compatibility with a Pimoroni Pan-Tilt HAT and an Adafruit Neopixel strip"""
-import sys
-import pantilthat
 import atexit
 import signal
+import sys
+
+import pantilthat
 
 _clear_on_exit = True
 _brightness    = 0.2

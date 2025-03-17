@@ -5,7 +5,6 @@ import time
 
 import pantilthat
 
-
 while True:
     # Get the time in seconds
     t = time.time()

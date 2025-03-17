@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-import pantilthat
 from sys import exit
+
+import pantilthat
 
 try:
     from flask import Flask, render_template
