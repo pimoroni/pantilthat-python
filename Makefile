@@ -1,5 +1,5 @@
-LIBRARY_NAME := $(shell hatch project metadata name 2> /dev/null)
-LIBRARY_VERSION := $(shell hatch version 2> /dev/null)
+LIBRARY_NAME := $(shell hatch project metadata name 2>&1)
+LIBRARY_VERSION := $(shell hatch version 2>&1)
 
 .PHONY: usage install uninstall check pytest qa build-deps check tag wheel sdist clean dist testdeploy deploy
 usage:
